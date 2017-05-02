@@ -4,7 +4,7 @@ As we pointed out last time, git is a "distributed" version control system, whic
 
 If you want to collaborate with other people on your project -- say the other members of your lab or contributors to your open source software project -- you'll need to reconcile the different changes everyone has made to their own copies. That's what we're going to cover this week.
 
-First, we'll see how to send our local changes to our forks on Github. Then we'll see how to use Github's "pull requests" to merge all of those changes into one copy on Github. Then we'll "fetch" the newly combined `bio.txt` file from the merged copy and make sure our forks are kept up-to-date with the changes.
+First, we'll see how to send our local changes to our forks on Github. Then we'll see how to use Github's "pull requests" to merge all of those changes into one copy on Github. Then we'll "fetch" the newly combined `bio.txt` file from the merged copy and make sure our forks are kept up-to-date with the changes. Finally, we'll talk a little bit about good workflows for using git and Github in collaborative open science projects.
 
 ## Recap from last time
 
