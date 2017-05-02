@@ -45,6 +45,10 @@ The command to push `master` to the `origin` remote is
 git push origin master
 ```
 
+## Pull requests
 
+Now that you've pushed your commits to your fork on Github, we want to combine the edits that everyone has made into one copy. Github makes this easy with its "Pull Requests." Pull requests are a feature of Github (and services like it such as Gitlab) and not git the software. When Github makes a pull request, it is basically running `git merge` to merge your changes into my copy, and you can use `git merge` on the command line to do the same thing. A pull request, however, is about more than just merging changes. Github lets you (and other people) comment on pull requests, so you can use pull requests as an opportunity to do a "code review." We'll talk more about code reviews and other ways to structure your collaboration when we talk about workflows below.
+
+To create a pull request, you click on "New pull request" which should show up on the homepage of your fork (<https://github.com/USERNAME/studygroup-git>). You'll be taken to Github's "Compare Changes" interface. 
 
 
