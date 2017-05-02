@@ -55,4 +55,8 @@ To create a pull request, you click on "New pull request" which should show up o
 
 Now it's my job to merge the pull requests. This might get a little complicated because we're going to have conflicts when we start merging everyone's `bio.txt` file. Feel free to ask questions. The good thing is that we'll run through this process a few times to get everyone's pull request merged. If you need to do this on your own project, Github's documentation on [Merging a pull request](https://help.github.com/articles/merging-a-pull-request/) and [Checking out pull requests locally](https://help.github.com/articles/checking-out-pull-requests-locally/) might be helpful.
 
+As the maintainer of the project, I will go to the "Pull Requests" tab on my repository. If I click on one of the pull requests you just made and scroll down, there will be a box. If there are no merge conflicts, I'll be able to merge the pull request on Github directly. If I click the "Merge pull request" button, it will automatically add your commit to my repository and close the pull request.
+
+If there are merge conflicts, I'll need to resolve them before I am able to merge the pull request. A merge conflict arises when two people have made edits to the same parts of the same files. In this case, git isn't able to tell which edit should be kept and which should be thrown away. In our example, since each of us has added a couple of lines to the top of the `bio.txt` file, git can't decide whether it should replace my lines with yours or append your lines on to the bottom of mine. I'll have to tell it that I want to append the lines.
+
 
