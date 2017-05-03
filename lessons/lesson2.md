@@ -57,6 +57,36 @@ Now it's my job to merge the pull requests. This might get a little complicated 
 
 As the maintainer of the project, I will go to the "Pull Requests" tab on my repository. If I click on one of the pull requests you just made and scroll down, there will be a box. If there are no merge conflicts, I'll be able to merge the pull request on Github directly. If I click the "Merge pull request" button, it will automatically add your commit to my repository and close the pull request.
 
-If there are merge conflicts, I'll need to resolve them before I am able to merge the pull request. A merge conflict arises when two people have made edits to the same parts of the same files. In this case, git isn't able to tell which edit should be kept and which should be thrown away. In our example, since each of us has added a couple of lines to the top of the `bio.txt` file, git can't decide whether it should replace my lines with yours or append your lines on to the bottom of mine. I'll have to tell it that I want to append the lines.
+If there are merge conflicts, I'll need to resolve them before I am able to merge the pull request. A merge conflict arises when two people have made edits to the same parts of the same files. In this case, git isn't able to tell which edit should be kept and which should be thrown away. In our example, since each of us has added a couple of lines to the top of the `bio.txt` file, git can't decide whether it should replace my lines with yours or append your lines on to the bottom of mine. I'll have to tell it that I want to append the lines. I do that by editing the file in which there is a conflict. I can do this by pulling the pull request branch down to my local copy, editing it on my computer, and pushing it back to Github. Github also provides an interface for editing the file that I'll use here. Once I've fixed the conflicts, I can merge the pull request.
 
+## Keeping your fork up-to-date
 
+Now that I've merged the changes into my copy of the studygroup-git repository, you might want to add those changes to your fork and your local copy. This is important if, for instance, you are working on a collaborative software project and someone else makes changes to the official copy. You'll want to incorporate those changes into your code so that you can build off of them.
+
+First, we'll add my repository as a new remote and then pull the changes I just merged into the `bio.txt` file. Traditionally, the remote that refers to the main copy of a project is called `upstream` (remember that your own copy is usually called `origin`). This is just a name, and you can call it whatever you like, but we'll stick with `upstream` for now. To add a remote called `upstream` which points to my studygroup-git repository, run
+
+```
+git remote add upstream https://github.com/wkearn/studygroup-git.git
+```
+
+Now, if you run `git remote -v`, you'll see the `origin` remote which should point to your fork on Github and a new `upstream` remote which points to my repository.
+
+To sync your fork and the main repository, you first "pull" the changes from `upstream` into your local copy of the repository and then push those changes to Github. Git offers a command called `git pull` that will do this, but it just runs a few commands in sequence. It is good to know that sequence because `git pull` can sometimes cause problems since it assumes that you're trying to do one thing when you might want to do something else.
+
+The first command is
+
+```
+git fetch upstream
+```
+
+This will copy the information that is stored in my Github repository to your local copy. It doesn't actually make any changes to any files locally.
+
+Make sure you are on the `master` branch of your repository (`git checkout master`) and then run
+
+```
+git merge upstream/master
+```
+
+Here, `upstream/master` refers to the `master` branch on the `upstream` remote which you are trying to merge into your `master` branch. This will likely proceed without any intervention because there shouldn't be any merge conflicts. If there are, you'll have to resolve the merge conflicts, and I'll show you all how to do that.
+
+Once you've merged `upstream/master` into `master`, you need to tell Github about these changes. We've done this before; it's just `git push origin master`.
