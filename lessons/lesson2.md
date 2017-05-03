@@ -92,3 +92,22 @@ git merge upstream/master
 Here, `upstream/master` refers to the `master` branch on the `upstream` remote which you are trying to merge into your `master` branch. This will likely proceed without any intervention because there shouldn't be any merge conflicts. If there are, you'll have to resolve the merge conflicts, and I'll show you all how to do that.
 
 Once you've merged `upstream/master` into `master`, you need to tell Github about these changes. We've done this before; it's just `git push origin master`.
+
+## Working with others with git and Github
+
+At this point, you've seen most of the workflow required to use git and Github. Roughly, the workflow looks like this:
+
+1. Find a repository on Github that you want to contribute to
+2. Fork that repository on Github
+3. Clone your fork to your local machine
+4. Make and commit changes to your local copy
+5. Push changes to your fork on Github
+6. Open a pull request to the upstream repository
+7. Have your pull request reviewed by the maintainers of the project
+8. The maintainers will either merge your pull request, ask you to make some changes, or reject your pull request
+9. Keep your fork and local copy synced with the upstream repository by pulling from upstream and pushing to your fork
+10. Repeat
+
+The main thing that we haven't talked about is [branching](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell), which is a way of organizing commits so that multiple lines of development can proceed simultaneously. Basically, you create a branch, commit a few things to that branch, and then merge the branch back into the `master` branch, which is the kind of "official" code for the project.
+
+This can be very helpful when you are working on a big collaborative software project. The maintainers of the project might want to keep the master branch of the upstream repository stable so that someone who downloads the code immediately has a copy that works, is well-documented, etc. In that case, when you want to create a new feature, you'll start a branch for that feature, make all of your changes, and then open a pull request not into the master branch of the upstream repository, but into a special "unstable" branch that holds all of the new features before they are tested and merged into the master branch as part of an official "release." A popular way for organizing branches for this kind of project is called [Git Flow](http://nvie.com/posts/a-successful-git-branching-model/).
